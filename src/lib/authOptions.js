@@ -2,7 +2,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 
 const demoUser = {
   email: "demouser@gmail.com",
-  password: 12345678,
+  password: "12345678",
 };
 
 export const authOptions = {
@@ -13,16 +13,17 @@ export const authOptions = {
       async authorize(credentials, req) {
         const { email, password } = credentials;
 
-        const user = demoUser.email == email;
-        if (!user) return null;
+        const isEmailMatched = demoUser.email == email;
+        if (!isEmailMatched) return null;
 
         const isPasswordOk = demoUser.password == password;
 
         if (isPasswordOk) {
-          console.log("from isPasswordOk", user);
-          return user;
+          console.log("from isPasswordOk", email);
+          return {
+            email: demoUser.email,
+          };
         }
-        // console.log(credentials);
         return null;
       },
     }),

@@ -1,10 +1,13 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const router = useRouter();
+  const [demoEmail, setDemoEmail] = useState("");
+  const [demoPass, setDemoPass] = useState("");
+
   const handleForm = async (e) => {
     e.preventDefault();
 
@@ -14,6 +17,7 @@ const LoginForm = () => {
       email: form.email.value,
       password: form.password.value,
     };
+    console.log(loginInfo);
 
     const res = await signIn("credentials", {
       email: loginInfo.email,
@@ -26,6 +30,11 @@ const LoginForm = () => {
     } else {
       alert("Login Failed");
     }
+  };
+
+  const handleDemoLogin = () => {
+    setDemoEmail("demouser@gmail.com");
+    setDemoPass("12345678");
   };
   return (
     <div>
@@ -59,6 +68,7 @@ const LoginForm = () => {
                   name="email"
                   type="email"
                   required
+                  defaultValue={demoEmail}
                   autoComplete="email"
                   className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                 />
@@ -85,6 +95,7 @@ const LoginForm = () => {
                   id="password"
                   name="password"
                   type="password"
+                  defaultValue={demoPass}
                   required
                   autoComplete="current-password"
                   className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
@@ -95,11 +106,16 @@ const LoginForm = () => {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                className="flex border border-white w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                 Sign in
               </button>
             </div>
           </form>
+          <button
+            onClick={handleDemoLogin}
+            className="flex w-full mt-5 justify-center rounded-md bg-black px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-black/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+            Demo Sign in
+          </button>
         </div>
       </div>
     </div>

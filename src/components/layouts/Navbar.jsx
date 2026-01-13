@@ -1,7 +1,14 @@
+"use client";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
+import { signOut } from "next-auth/react";
 
 const Navbar = () => {
+  const { data: session, status } = useSession();
+
+  const userLoggedIn = status === "authenticated";
+
   return (
     <div>
       <div className="navbar bg-primary shadow-sm">
@@ -45,37 +52,31 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <Link href="/" className="btn btn-primary hover:bg-[#1e293b] hover:border-none text-xl">
+          <Link
+            href="/"
+            className="btn btn-primary hover:bg-[#1e293b] hover:border-none text-xl">
             daisyUI
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          {/* <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2 bg-base-100 w-40 z-1">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul> */}
+          <ul className="menu menu-horizontal">
+            <li>{JSON.stringify(session)}</li>
+          </ul>
         </div>
         <div className="navbar-end">
-          <Link href="login" className="btn btn-primary text-neutral-content">
-            Log In
-          </Link>
+          {userLoggedIn ? (
+            <button
+              onClick={() => {
+                signOut();
+              }}
+              className="btn btn-neutral text-neutral-content">
+              Log Out
+            </button>
+          ) : (
+            <Link href="login" className="btn btn-neutral text-neutral-content">
+              Log In
+            </Link>
+          )}
         </div>
       </div>
     </div>
