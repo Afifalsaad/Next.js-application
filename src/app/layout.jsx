@@ -28,8 +28,8 @@ export default function RootLayout({ children }) {
           <header>
             <Navbar></Navbar>
           </header>
+          <main className="bg-primary">{children}</main>
         </Providers>
-        {children}
       </body>
     </html>
   );
