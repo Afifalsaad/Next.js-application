@@ -1,4 +1,6 @@
+import TestButton from "@/components/Buttons/TestButton";
 import Banner from "@/components/Home/Banner";
+import Animals from "@/components/Home/Animals";
 
 export default function Home() {
   return (
@@ -6,6 +8,14 @@ export default function Home() {
       <section>
         <Banner></Banner>
       </section>
+
+      <section>
+        <Animals></Animals>
+      </section>
+
+      {/* <section>
+        <TestButton></TestButton>
+      </section> */}
     </div>
   );
 }

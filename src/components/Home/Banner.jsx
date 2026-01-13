@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React from "react";
 import Slider from "react-slick";
-import image from "../../../public/Green-and-White-Modern-Ecosystem-Presentation.png";
 import image2 from "../../../public/Green and White Modern Nature Landscape Presentation.png";
 import image3 from "../../../public/Green Organic Exploring the Animal Kingdom Presentation.png";
 import image4 from "../../../public/Nature YouTube Banner in White Minimalist Photo Style.png";
@@ -44,24 +43,24 @@ const Banner = () => {
 
         <div className="slider-container w-full mx-auto">
           <Slider {...settings}>
-            <div className="w-full pr-2">
-              <div className="w-full h-75 md:h-125">
+            <div className="w-full px-1">
+              <div className="w-full h-65 md:h-125">
                 <Image
                   className="w-full h-full rounded-md"
                   src={image2}
                   alt="image"></Image>
               </div>
             </div>
-            <div className="w-full pr-2">
-              <div className="w-full h-75 md:h-125">
+            <div className="w-full px-1">
+              <div className="w-full h-65 md:h-125">
                 <Image
                   className="w-full h-full rounded-md"
                   src={image3}
                   alt="image"></Image>
               </div>
             </div>
-            <div className="w-full pr-2">
-              <div className="w-full h-75 md:h-125">
+            <div className="w-full px-1">
+              <div className="w-full h-65 md:h-125">
                 <Image
                   className="w-full h-full rounded-md"
                   src={image4}
