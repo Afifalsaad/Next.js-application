@@ -1,6 +1,32 @@
+"use client";
 import React from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
+  const router = useRouter();
+  const handleForm = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const loginInfo = {
+      email: form.email.value,
+      password: form.password.value,
+    };
+
+    const res = await signIn("credentials", {
+      email: loginInfo.email,
+      password: loginInfo.password,
+      redirect: false,
+    });
+
+    if (res?.ok) {
+      router.push("/");
+    } else {
+      alert("Login Failed");
+    }
+  };
   return (
     <div>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -16,7 +42,11 @@ const LoginForm = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
+          <form
+            onSubmit={handleForm}
+            action="#"
+            method="POST"
+            className="space-y-6">
             <div>
               <label
                 htmlFor="email"
