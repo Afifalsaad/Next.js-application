@@ -19,7 +19,6 @@ export const authOptions = {
         const isPasswordOk = demoUser.password == password;
 
         if (isPasswordOk) {
-          console.log("from isPasswordOk", email);
           return {
             email: demoUser.email,
           };

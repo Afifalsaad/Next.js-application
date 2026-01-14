@@ -9,7 +9,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export function ImgCard({ data }) {
-  console.log(data._id);
   return (
     <div>
       <Card sx={{ maxWidth: 345, backgroundColor: "#0c1425" }}>

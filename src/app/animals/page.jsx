@@ -4,7 +4,7 @@ import React from "react";
 
 const AllAnimals = () => {
   return (
-    <div>
+    <div className="max-w-6xl mx-auto">
       <Animals></Animals>
     </div>
   );

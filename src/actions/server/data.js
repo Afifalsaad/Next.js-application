@@ -26,6 +26,5 @@ export const getDetails = async (id) => {
   const collection = await dbConnect(collections.ANIMALS);
 
   const result = await collection.findOne(query);
-  console.log(result);
   return { ...result, _id: result._id?.toString() } || [];
 };
