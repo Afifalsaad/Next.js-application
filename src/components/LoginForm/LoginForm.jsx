@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { dbConnect } from "@/lib/dbConnect";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -27,7 +26,6 @@ const LoginForm = () => {
 
     if (res?.ok) {
       router.push("/");
-      dbConnect.insert
     } else {
       alert("Login Failed");
     }

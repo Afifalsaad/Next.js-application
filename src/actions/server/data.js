@@ -1,6 +1,7 @@
 "use server";
 
 import { collections, dbConnect } from "@/lib/dbConnect";
+import { ObjectId } from "mongodb";
 
 export const getAnimalsData = async () => {
   const collection = await dbConnect(collections.ANIMALS);
@@ -15,14 +16,16 @@ export const getAnimalsData = async () => {
   return serializedData;
 };
 
-// export const addToDB = async () => {
-//   const doc = { name: "Test", email: "test@gmail.com" };
+export const getDetails = async (id) => {
+  if (id.length != 24) {
+    return {};
+  }
 
-//   const collection = await dbConnect(collections.TEST);
+  const query = { _id: new ObjectId(id) };
 
-//   const res = await collection.insertOne(doc);
-//   if (res.acknowledged) {
-//     console.log("This is from test", res.insertedId);
-//     return res;
-//   }
-// };
+  const collection = await dbConnect(collections.ANIMALS);
+
+  const result = await collection.findOne(query);
+  console.log(result);
+  return { ...result, _id: result._id?.toString() } || [];
+};

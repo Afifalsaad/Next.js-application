@@ -3,13 +3,13 @@ import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+import Link from "next/link";
 
 export function ImgCard({ data }) {
-  console.log(data);
+  console.log(data._id);
   return (
     <div>
       <Card sx={{ maxWidth: 345, backgroundColor: "#0c1425" }}>
@@ -62,7 +62,9 @@ export function ImgCard({ data }) {
         </CardContent>
         <CardActions>
           <Button size="small">Share</Button>
-          <Button size="small">Learn More</Button>
+          <Link href={`animals/${data._id}`}>
+            <Button size="small">Learn More</Button>
+          </Link>
         </CardActions>
       </Card>
     </div>

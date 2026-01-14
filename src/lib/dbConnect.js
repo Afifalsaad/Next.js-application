@@ -14,18 +14,6 @@ const client = new MongoClient(uri, {
   },
 });
 
-// let isConnected = false;
-
 export const dbConnect = async (collectionName) => {
-  // if (!isConnected) {
-  //   try {
-  //     await client.connect();
-  //     isConnected = true;
-  //     console.log("MongoDB connected successfully");
-  //   } catch (error) {
-  //     console.error("MongoDB connection error:", error);
-  //     throw error;
-  //   }
-  // }
   return client.db(dbName).collection(collectionName);
 };

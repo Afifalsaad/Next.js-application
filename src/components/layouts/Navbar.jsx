@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="navbar bg-primary shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            {/* <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -50,7 +50,7 @@ const Navbar = () => {
               <li>
                 <a>Item 3</a>
               </li>
-            </ul>
+            </ul> */}
           </div>
           <Link
             href="/"
@@ -58,9 +58,13 @@ const Navbar = () => {
             daisyUI
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center flex">
           <ul className="menu menu-horizontal">
-            <li>{JSON.stringify(session)}</li>
+            <Link href="/animals">
+              <h2 className="text-accent hover:underline hover:cursor-pointer font-semibold mr-3 text-neutral-accent">
+                All Animals
+              </h2>
+            </Link>
           </ul>
         </div>
         <div className="navbar-end">
