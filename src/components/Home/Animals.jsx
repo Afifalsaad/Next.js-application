@@ -1,19 +1,18 @@
 import React from "react";
-import ImgMediaCard from "../card/Card";
 import { getAnimalsData } from "@/actions/server/data";
-import Card from "../card/Card";
+import { ImgCard } from "../card/Card";
 
 const Animals = async () => {
   const data = await getAnimalsData();
   return (
     <div>
-      <h2 className="text-4xl text-center font-bold mb-10">
-        Our <span className="text-primary">Products</span>
+      <h2 className="text-2xl text-center font-bold my-5">
+        Know about <span className="text-secondary">Them</span>
       </h2>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
         {data.map((d, index) => (
           <div key={index}>
-            <Card data={d}></Card>
+            <ImgCard data={d}></ImgCard>
           </div>
         ))}
       </div>

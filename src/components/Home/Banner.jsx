@@ -21,7 +21,7 @@ const Banner = () => {
   };
   return (
     <div>
-      <div className="space-x-5 bg-primary min-h-screen">
+      <div className="space-x-5 bg-primary">
         {/* <div>
           <button className="btn btn-primary text-neutral-content">
             Button Primary

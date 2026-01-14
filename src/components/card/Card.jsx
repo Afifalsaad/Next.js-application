@@ -1,89 +1,70 @@
 "use client";
-// import Card from "@mui/material/Card";
-// import CardActions from "@mui/material/CardActions";
-// import CardContent from "@mui/material/CardContent";
-// import CardMedia from "@mui/material/CardMedia";
-// import Button from "@mui/material/Button";
-// import Typography from "@mui/material/Typography";
-// import { useEffect, useState } from "react";
-
-// export default function ImgMediaCard({ data }) {
-//   console.log(data);
-//   const [mounted, setMounted] = useState(false);
-
-//   useEffect(() => {
-//     setMounted(true);
-//   }, []);
-
-//   if (!mounted) return null;
-//   return (
-//     <Card sx={{ maxWidth: 345, backgroundColor: "#1e293b" }}>
-//       <CardMedia
-//         component="img"
-//         alt="green iguana"
-//         height="140"
-//         image="/static/images/cards/contemplative-reptile.jpg"
-//       />
-//       <CardContent>
-//         <Typography
-//           gutterBottom
-//           sx={{ color: "white" }}
-//           variant="h5"
-//           component="div">
-//           Lizard
-//         </Typography>
-//         <Typography variant="body2" sx={{ color: "#c9cbd0" }}>
-//           Lizards are a widespread group of squamate reptiles, with over 6,000
-//           species, ranging across all continents except Antarctica
-//         </Typography>
-//       </CardContent>
-//       <CardActions>
-//         <Button size="small">Share</Button>
-//         <Button size="small">Learn More</Button>
-//       </CardActions>
-//     </Card>
-//   );
-// }
-
 import React from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Image from "next/image";
 
-const Card = ({ data }) => {
-  
-  // Default values in case data is missing
-  const name = data?.name || "Animal Name";
-  const description = data?.description || "Description not available";
-  const imageUrl = data?.image || "/placeholder-image.jpg";
-  const species = data?.species || "Species not available";
-  const habitat = data?.habitat || "Habitat not available";
-  const conservationStatus = data?.conservationStatus || "Status unknown";
-  
+export function ImgCard({ data }) {
+  console.log(data);
   return (
-    <div className="card bg-base-100 w-96 shadow-xl">
-      <figure className="h-48 overflow-hidden">
-        <img 
-          src={imageUrl} 
-          alt={name}
-          className="w-full h-full object-cover"
-          onError={(e) => {
-            e.target.src = '/placeholder-image.jpg';
-            e.target.onerror = null; // Prevent infinite loop if placeholder also fails
-          }}
-        />
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title">{name}</h2>
-        <p className="text-sm opacity-75">{species}</p>
-        <p className="text-xs">{habitat}</p>
-        <p className="text-sm mt-2">{description.substring(0, 100)}...</p>
-        <div className="card-actions justify-between items-center mt-2">
-          <span className={`badge ${conservationStatus === 'Endangered' ? 'badge-error' : conservationStatus === 'Vulnerable' ? 'badge-warning' : 'badge-info'}`}>
-            {conservationStatus}
-          </span>
-          <button className="btn btn-primary btn-sm">Details</button>
+    <div>
+      <Card sx={{ maxWidth: 345, backgroundColor: "#0c1425" }}>
+        <div className="relative h-55 w-full">
+          <Image alt={data.name} src={data.image} fill></Image>
         </div>
-      </div>
+
+        <CardContent>
+          <div className="flex justify-between">
+            <div>
+              <Typography
+                gutterBottom
+                sx={{ color: "white" }}
+                variant="h5"
+                component="div">
+                {data.name}
+              </Typography>
+            </div>
+            <div className="px-3 py-2 text-center rounded-full">
+              <h2
+                className={`text-[10px] font-semibold px-2 py-1 rounded-full ${
+                  data.conservationStatus === "Extinct"
+                    ? "bg-gray-800 text-white"
+                    : data.conservationStatus === "Endangered"
+                    ? "bg-red-500 text-white"
+                    : data.conservationStatus === "Vulnerable"
+                    ? "bg-orange-400 text-white"
+                    : data.conservationStatus === "Near Threatened"
+                    ? "bg-yellow-300 text-black"
+                    : data.conservationStatus === "Least Concern"
+                    ? "bg-green-500 text-white"
+                    : "bg-gray-400 text-white"
+                }`}>
+                {data.conservationStatus}
+              </h2>
+            </div>
+          </div>
+
+          <Typography
+            variant="body2"
+            sx={{
+              color: "#c9cbd0",
+              display: "-webkit-box",
+              WebkitLineClamp: 4,
+              overflow: "hidden",
+              WebkitBoxOrient: "vertical",
+            }}>
+            {data.description}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Share</Button>
+          <Button size="small">Learn More</Button>
+        </CardActions>
+      </Card>
     </div>
   );
-};
-
-export default Card;
+}
