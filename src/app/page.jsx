@@ -2,6 +2,7 @@ import TestButton from "@/components/Buttons/TestButton";
 import Banner from "@/components/Home/Banner";
 import Animals from "@/components/Home/Animals";
 import WhatYouCanDo from "@/components/Home/WhatYouCanDo";
+import Blogs from "@/components/Home/Blogs";
 
 export default function Home() {
   return (
@@ -16,6 +17,10 @@ export default function Home() {
 
       <section>
         <WhatYouCanDo></WhatYouCanDo>
+      </section>
+
+      <section>
+        <Blogs></Blogs>
       </section>
     </div>
   );
