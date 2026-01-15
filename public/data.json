@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "African forest elephants",
+    "image": "https://i.ibb.co.com/pB7BhhH8/gettyimages-1414370189-612x612.jpg",
+    "imageDescription": "African forest elephant in Gabon",
+    "scientificName": "Loxodonta africana",
+    "conservationStatus": "Critically endangered"
+  },
+  {
+    "id": 2,
+    "name": "African savanna elephants",
+    "image": "https://i.ibb.co.com/dwxqxgCw/gettyimages-127996175-612x612.jpg",
+    "imageDescription": "African elephant walking",
+    "scientificName": "Loxodonta africana africana",
+    "conservationStatus": "Endangered"
+  },
+  {
+    "id": 3,
+    "name": "African wild dogs",
+    "image": "https://i.ibb.co.com/h1ZwRLsh/gettyimages-485205975-612x612.jpg",
+    "imageDescription": "Close up portrait of an African wild dog",
+    "scientificName": "Lycaon pictus",
+    "conservationStatus": "Endangered"
+  },
+  {
+    "id": 4,
+    "name": "Albacore tuna",
+    "image": "https://i.ibb.co.com/8gf6Xz3T/gettyimages-667598691-612x612.jpg",
+    "imageDescription": "Illustration of an albacore tuna",
+    "scientificName": "Thunnus alalunga",
+    "conservationStatus": "Near threatened"
+  },
+  {
+    "id": 5,
+    "name": "Amazon river dolphins",
+    "image": "https://i.ibb.co.com/mMn8d4N/beautiful-shot-common-bottlenose-dolphin-living-his-best-life-sea-1.jpg",
+    "imageDescription": "Underwater shot of an Amazon river dolphin silhouetted against the surface of the river in murky, red water.",
+    "scientificName": "Inia geoffrensis",
+    "conservationStatus": "Endangered"
+  },
+  {
+    "id": 6,
+    "name": "Amur leopards",
+    "image": "https://i.ibb.co.com/Kz3XV8ys/gettyimages-997929788-612x612.jpg",
+    "imageDescription": "A closeup photo of a spotted Amur leopard looking toward the camera.",
+    "scientificName": "Panthera pardus orientalis",
+    "conservationStatus": "Critically endangered"
+  },
+  {
+    "id": 7,
+    "name": "Arctic foxes",
+    "image": "https://i.ibb.co.com/9mM86Zkw/gettyimages-157305552-612x612.jpg",
+    "imageDescription": "Arctic fox licking its face",
+    "scientificName": "Vulpes lagopus",
+    "conservationStatus": "Least concern"
+  },
+  {
+    "id": 8,
+    "name": "Arctic wolves",
+    "image": "https://i.ibb.co.com/FLQzhSHN/gettyimages-521389812-612x612.jpg",
+    "imageDescription": "A close up of an arctic wolf looking to the right of the camera",
+    "scientificName": "Canis lupus arctos",
+    "conservationStatus": "Least concern"
+  },
+  {
+    "id": 9,
+    "name": "Asian elephants",
+    "image": "https://i.ibb.co.com/TB5vhBxh/gettyimages-1393050365-612x612.jpg",
+    "imageDescription": "Close-up of two Asian elephants touching trunks.",
+    "scientificName": "Elephas maximus indicus",
+    "conservationStatus": "Endangered"
+  },
+  {
+    "id": 10,
+    "name": "Beavers",
+    "image": "https://i.ibb.co.com/WL77tky/gettyimages-2176478765-612x612.jpg",
+    "imageDescription": "Close-up shot of a half-submerged beaver",
+    "scientificName": "Castor canadensis",
+    "conservationStatus": "Least concern"
+  },
+  {
+    "id": 11,
+    "name": "Belugas",
+    "image": "https://i.ibb.co.com/jPbNgLzh/gettyimages-534963224-612x612.jpg",
+    "imageDescription": "Beluga whale against dark green waters looking at the camera",
+    "scientificName": "Delphinapterus leucas",
+    "conservationStatus": "Near threatened"
+  },
+  {
+    "id": 12,
+    "name": "Bigeye tuna",
+    "image": "https://i.ibb.co.com/v65JH9Q0/gettyimages-1261677980-612x612.jpg",
+    "imageDescription": "Five bigeye tuna swing among a large school of fish",
+    "scientificName": "Thunnus obesus",
+    "conservationStatus": "Vulnerable"
+  }
+]

@@ -3,6 +3,7 @@ import Banner from "@/components/Home/Banner";
 import Animals from "@/components/Home/Animals";
 import WhatYouCanDo from "@/components/Home/WhatYouCanDo";
 import Blogs from "@/components/Home/Blogs";
+import Species from "@/components/Home/Species";
 
 export default function Home() {
   return (
@@ -21,6 +22,10 @@ export default function Home() {
 
       <section>
         <Blogs></Blogs>
+      </section>
+
+      <section>
+        <Species></Species>
       </section>
     </div>
   );
