@@ -20,8 +20,8 @@ const Details = async ({ params }) => {
         <div className="max-w-5xl mx-auto w-full bg-primary rounded-4xl shadow-2xl overflow-hidden border border-white">
           <div className="relative h-137 w-full">
             <Image
-              src={animal.image}
-              alt={animal.name}
+              src={animal?.image}
+              alt={animal?.name}
               fill
               className="object-fill"
             />

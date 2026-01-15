@@ -2,9 +2,9 @@
 import Image from "next/image";
 import React from "react";
 import Slider from "react-slick";
-import image2 from "../../../public/Green and White Modern Nature Landscape Presentation.png";
-import image3 from "../../../public/Green Organic Exploring the Animal Kingdom Presentation.png";
-import image4 from "../../../public/Nature YouTube Banner in White Minimalist Photo Style.png";
+// import image2 from "../../../public";
+// import image3 from "../../../public";
+// import image4 from "";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -47,7 +47,11 @@ const Banner = () => {
               <div className="w-full h-65 md:h-125">
                 <Image
                   className="w-full h-full rounded-md"
-                  src={image2}
+                  width={500}
+                  height={200}
+                  src={
+                    "/Green and White Modern Nature Landscape Presentation.png"
+                  }
                   alt="image"></Image>
               </div>
             </div>
@@ -55,7 +59,11 @@ const Banner = () => {
               <div className="w-full h-65 md:h-125">
                 <Image
                   className="w-full h-full rounded-md"
-                  src={image3}
+                  width={500}
+                  height={200}
+                  src={
+                    "/Green Organic Exploring the Animal Kingdom Presentation.png"
+                  }
                   alt="image"></Image>
               </div>
             </div>
@@ -63,7 +71,11 @@ const Banner = () => {
               <div className="w-full h-65 md:h-125">
                 <Image
                   className="w-full h-full rounded-md"
-                  src={image4}
+                  width={500}
+                  height={200}
+                  src={
+                    "/Nature YouTube Banner in White Minimalist Photo Style.png"
+                  }
                   alt="image"></Image>
               </div>
             </div>

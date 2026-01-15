@@ -1,6 +1,7 @@
 import TestButton from "@/components/Buttons/TestButton";
 import Banner from "@/components/Home/Banner";
 import Animals from "@/components/Home/Animals";
+import WhatYouCanDo from "@/components/Home/WhatYouCanDo";
 
 export default function Home() {
   return (
@@ -13,9 +14,9 @@ export default function Home() {
         <Animals></Animals>
       </section>
 
-      {/* <section>
-        <TestButton></TestButton>
-      </section> */}
+      <section>
+        <WhatYouCanDo></WhatYouCanDo>
+      </section>
     </div>
   );
 }
