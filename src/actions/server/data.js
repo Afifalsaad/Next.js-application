@@ -28,3 +28,23 @@ export const getDetails = async (id) => {
   const result = await collection.findOne(query);
   return { ...result, _id: result._id?.toString() } || [];
 };
+
+// Add concerns to database
+export const postConcern = async (data) => {
+  const collection = await dbConnect(collections.CONCERNS);
+
+  const postData = {
+    ...data,
+    createdAt: new Date(),
+  };
+
+  const result = await collection.insertOne(postData);
+  if (result.acknowledged) {
+    return {
+      ...postData,
+      _id: result.insertedId.toString(),
+      insertedId: result.insertedId.toString(),
+      acknowledged: true,
+    };
+  }
+};

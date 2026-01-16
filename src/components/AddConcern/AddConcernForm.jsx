@@ -1,16 +1,43 @@
+"use client";
+import { postConcern } from "@/actions/server/data";
 import React from "react";
+import { useForm } from "react-hook-form";
+import { toast, Zoom } from "react-toastify";
 
 const AddConcernForm = () => {
+  const { register, handleSubmit } = useForm();
+
+  const submitForm = async (data) => {
+    console.log(data);
+    const result = await postConcern(data);
+    if (result.acknowledged) {
+      toast.success("Thanks for your info.", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Zoom,
+      });
+    }
+  };
+
   return (
     <div className="pb-30">
       <div className="py-10 border max-w-6xl mx-auto">
-        <form className="p-6 max-w-4xl mx-auto">
+        <form
+          onSubmit={handleSubmit(submitForm)}
+          className="p-6 max-w-4xl mx-auto">
           <div className="grid sm:grid-cols-2 gap-10">
             <div className="relative flex items-center">
               <label className="text-[13px] bg-primary text-neutral-content font-medium absolute px-2 -top-2.5 left-4.5">
                 First Name
               </label>
               <input
+                {...register("first-name")}
                 type="text"
                 placeholder="Enter first name"
                 className="px-4 py-3.5 pr-8 bg-primary text-neutral-content font-medium w-full text-sm border-2 border-gray-200 focus:border-blue-500 rounded-sm outline-none"
@@ -33,6 +60,7 @@ const AddConcernForm = () => {
                 Last Name
               </label>
               <input
+                {...register("last-name")}
                 type="text"
                 placeholder="Enter last name"
                 className="px-4 py-3.5 pr-8 bg-primary text-neutral-content font-medium w-full text-sm border-2 border-gray-200 focus:border-blue-500 rounded-sm outline-none"
@@ -55,6 +83,7 @@ const AddConcernForm = () => {
                 Phone No
               </label>
               <input
+                {...register("number")}
                 type="number"
                 placeholder="Enter phone no."
                 className="px-4 py-3.5 pr-8 bg-primary text-neutral-content font-medium w-full text-sm border-2 border-gray-200 focus:border-blue-500 rounded-sm outline-none"
@@ -74,6 +103,7 @@ const AddConcernForm = () => {
                 Country
               </label>
               <input
+                {...register("country")}
                 type="text"
                 placeholder="Enter country"
                 className="px-4 py-3.5 pr-8 bg-primary text-neutral-content font-medium w-full text-sm border-2 border-gray-200 focus:border-blue-500 rounded-sm outline-none"
@@ -103,6 +133,7 @@ const AddConcernForm = () => {
                 Animal Name
               </label>
               <input
+                {...register("animal-name")}
                 type="text"
                 placeholder="Enter animal name"
                 className="px-4 py-3.5 pr-8 bg-primary text-neutral-content font-medium w-full text-sm border-2 border-gray-200 focus:border-blue-500 rounded-sm outline-none"
@@ -114,6 +145,7 @@ const AddConcernForm = () => {
                 Concern
               </label>
               <input
+                {...register("concern")}
                 type="text"
                 placeholder="Enter concern"
                 className="px-4 py-3.5 pr-8 bg-primary text-neutral-content font-medium w-full text-sm border-2 border-gray-200 focus:border-blue-500 rounded-sm outline-none"
@@ -122,11 +154,11 @@ const AddConcernForm = () => {
 
             <div className="relative">
               <label
-                for="uploadFile1"
-                class="bg-primary/60 text-slate-500 font-semibold text-base rounded max-w-md h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto">
+                htmlFor="uploadFile1"
+                className="bg-primary/60 text-slate-500 font-semibold text-base rounded max-w-md h-52 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="w-11 mb-3 fill-gray-500"
+                  className="w-11 mb-3 fill-gray-500"
                   viewBox="0 0 32 32">
                   <path
                     d="M23.75 11.044a7.99 7.99 0 0 0-15.5-.009A8 8 0 0 0 9 27h3a1 1 0 0 0 0-2H9a6 6 0 0 1-.035-12 1.038 1.038 0 0 0 1.1-.854 5.991 5.991 0 0 1 11.862 0A1.08 1.08 0 0 0 23 13a6 6 0 0 1 0 12h-3a1 1 0 0 0 0 2h3a8 8 0 0 0 .75-15.956z"
@@ -139,7 +171,7 @@ const AddConcernForm = () => {
                 </svg>
                 Upload file
                 <input type="file" id="uploadFile1" className="hidden" />
-                <p class="text-xs font-medium text-slate-400 mt-2">
+                <p className="text-xs font-medium text-slate-400 mt-2">
                   PNG, JPG SVG, WEBP, and GIF are Allowed.
                 </p>
               </label>
@@ -150,6 +182,7 @@ const AddConcernForm = () => {
                 Email
               </label>
               <input
+                {...register("email")}
                 type="email"
                 placeholder="Enter email"
                 className="px-4 py-3.5 pr-8 bg-primary text-neutral-content font-medium w-full text-sm border-2 border-gray-200 focus:border-blue-500 rounded-sm outline-none"
@@ -183,29 +216,20 @@ const AddConcernForm = () => {
 
             <div className="relative flex items-center sm:col-span-2">
               <label className="text-[13px] bg-primary text-neutral-content font-medium absolute px-2 -top-2.5 left-4.5">
-                Password
+                Description
               </label>
-              <input
-                type="password"
-                autoComplete="new-password"
-                placeholder="Enter password"
-                className="px-4 py-3.5 pr-8 bg-primary text-neutral-content font-medium w-full text-sm border-2 border-gray-200 focus:border-blue-500 rounded outline-none"
+              <textarea
+                {...register("description")}
+                type="text"
+                rows={5}
+                placeholder="Enter description"
+                className="px-4 py-3.5 pr-8 bg-primary text-neutral-content font-medium w-full text-sm border-2 border-gray-200 focus:border-blue-500 rounded-sm outline-none"
               />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="#bbb"
-                stroke="#bbb"
-                className="w-4.5 h-4.5 absolute right-4 cursor-pointer"
-                viewBox="0 0 128 128">
-                <path
-                  d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z"
-                  data-original="#000000"></path>
-              </svg>
             </div>
           </div>
 
           <button
-            type="button"
+            type="submit"
             className="mt-10 px-6 py-2.5 w-full text-sm font-medium bg-blue-600 text-white rounded-sm hover:bg-blue-700 transition-all cursor-pointer">
             Submit
           </button>

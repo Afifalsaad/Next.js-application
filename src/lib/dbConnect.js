@@ -5,8 +5,8 @@ const dbName = process.env.DB_NAME;
 
 export const collections = {
   ANIMALS: "animals",
+  CONCERNS: "concerns",
 };
-
 
 let cachedClient = null;
 let cachedDb = null;
@@ -22,7 +22,7 @@ async function connectToDatabase() {
       strict: true,
       deprecationErrors: true,
     },
-    maxPoolSize: 10, 
+    maxPoolSize: 10,
   });
 
   await client.connect();
