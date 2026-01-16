@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { toast, ToastContainer, Zoom } from "react-toastify";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -25,7 +26,18 @@ const LoginForm = () => {
     });
 
     if (res?.ok) {
-      router.push("/");
+      router.push("/animals");
+      toast.success("Logged In!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Zoom,
+      });
     } else {
       alert("Login Failed");
     }
@@ -100,14 +112,14 @@ const LoginForm = () => {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 hover:cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                 Sign in
               </button>
             </div>
           </form>
           <button
             onClick={handleDemoLogin}
-            className="flex w-full mt-5 justify-center rounded-md bg-black px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-black/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+            className="flex w-full mt-5 justify-center rounded-md bg-black px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-black/50 hover:cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
             Demo Sign in
           </button>
         </div>

@@ -3,11 +3,16 @@ import React from "react";
 
 const ClimateChange = () => {
   return (
-    <div className="pb-20">
-      <h2 className="text-3xl font-semibold text-center px-5 md:px-0 mb-10">
+    <div className="pb-30">
+      <h2 className="text-3xl font-semibold text-center px-5 md:px-0 mb-2">
         The effects of climate change
       </h2>
-      <div className="min-h-screen space-y-10 md:space-y-28">
+      <p className="text-center text-gray-600 max-w-2xl mx-auto mt-2 mb-8">
+        Climate change is altering weather patterns, ecosystems, and livelihoods
+        around the world. Understanding its impact is the first step toward
+        protecting our planet and ensuring a sustainable future for all.
+      </p>
+      <div className="space-y-10 md:space-y-28">
         {/* The Amazon */}
         <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-10 flex-1">
           <div>

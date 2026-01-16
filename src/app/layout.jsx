@@ -4,6 +4,7 @@ import Navbar from "@/components/layouts/Navbar";
 import { SessionProvider } from "next-auth/react";
 import Providers from "./Providers";
 import Footer from "@/components/Footer/Footer";
+import { ToastContainer, Zoom } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,22 @@ export default function RootLayout({ children }) {
           <header>
             <Navbar></Navbar>
           </header>
-          <main className="bg-primary">{children}</main>
+          <main className="bg-primary">
+            {children}
+            <ToastContainer
+              position="top-right"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+              transition={Zoom}
+            />
+          </main>
           <footer className="bg-primary">
             <Footer></Footer>
           </footer>

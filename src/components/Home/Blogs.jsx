@@ -4,8 +4,13 @@ import { FaArrowRight } from "react-icons/fa";
 
 const Blogs = () => {
   return (
-    <div>
-      <div className="flex justify-between gap-8 pb-30 px-5">
+    <div className="">
+      <h2 className="font-bold text-center text-3xl">Read the Concerns</h2>
+      <p className="text-center text-gray-600 max-w-xl mx-auto mt-2 mb-8">
+        Discover the pressing environmental issues threatening our planet and
+        the steps we must take to protect it.
+      </p>
+      <div className="flex justify-between gap-8 pb-30 px-5 md:px-0">
         <div className="hover:cursor-pointer group">
           <div className="overflow-hidden rounded-xl">
             <Image

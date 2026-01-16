@@ -9,7 +9,7 @@ const Animals = async () => {
       <h2 className="text-2xl text-center font-bold py-5">
         Know about <span className="text-secondary">Them</span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-10 md:px-25 lg:px-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-10 md:px-25 lg:px-0">
         {data.map((d, index) => (
           <div key={index}>
             <ImgCard data={d}></ImgCard>
