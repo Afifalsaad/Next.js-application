@@ -3,7 +3,6 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 import { signOut } from "next-auth/react";
-import icon from "../../../public/wildlife-conservation.png";
 import Image from "next/image";
 
 const Navbar = () => {
@@ -16,7 +15,10 @@ const Navbar = () => {
       <div className="navbar bg-primary shadow-sm">
         <div className="navbar-start ml-3">
           <Link href="/" className="relative w-9 h-9">
-            <Image src={icon} fill alt="icon"></Image>
+            <Image
+              src="/wildlife-conservation.png"
+              fill
+              alt="icon"></Image>
           </Link>
         </div>
         <div className="navbar-center flex">
@@ -38,7 +40,9 @@ const Navbar = () => {
               Log Out
             </button>
           ) : (
-            <Link href="/login" className="btn btn-neutral text-neutral-content">
+            <Link
+              href="/login"
+              className="btn btn-neutral text-neutral-content">
               Log In
             </Link>
           )}

@@ -3,8 +3,8 @@ import React from "react";
 
 const ClimateChange = () => {
   return (
-    <div className="">
-      <h2 className="text-3xl font-semibold px-5 md:px-0 mb-10">
+    <div className="pb-20">
+      <h2 className="text-3xl font-semibold text-center px-5 md:px-0 mb-10">
         The effects of climate change
       </h2>
       <div className="min-h-screen space-y-10 md:space-y-28">
@@ -21,7 +21,7 @@ const ClimateChange = () => {
           <div className="max-w-xl md:mt-10 pl-5 md:pl-0">
             <h2 className="text-3xl font-semibold mb-5">Amazon River</h2>
             <p className="leading-7">
-              The Amazon's vast forests and rivers keep <br /> soils healthy,
+              The Amazon`s vast forests and rivers keep <br /> soils healthy,
               crops growing, and wildlife <br /> thriving. But as climate change
               dries forests <br /> and disrupts rainfall, this delicate balance
               is <br /> unraveling—putting communities, <br /> biodiversity, and

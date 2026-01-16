@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 const Blogs = () => {
   return (
     <div>
-      <div className="flex justify-between gap-8 pb-10 px-5">
+      <div className="flex justify-between gap-8 pb-30 px-5">
         <div className="hover:cursor-pointer group">
           <div className="overflow-hidden rounded-xl">
             <Image
