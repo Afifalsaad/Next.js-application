@@ -5,6 +5,7 @@ import WhatYouCanDo from "@/components/Home/WhatYouCanDo";
 import Blogs from "@/components/Home/Blogs";
 import Species from "@/components/Home/Species";
 import ClimateChange from "@/components/Home/ClimateChange";
+import ContactUs from "@/components/Home/ContactUs";
 
 export default function Home() {
   return (
@@ -31,6 +32,10 @@ export default function Home() {
 
       <section>
         <ClimateChange></ClimateChange>
+      </section>
+
+      <section>
+        <ContactUs></ContactUs>
       </section>
     </div>
   );

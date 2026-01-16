@@ -16,7 +16,7 @@ const Details = async ({ params }) => {
   const animal = await getDetails(id);
   return (
     <div>
-      <div className="min-h-screen bg-primary px-4">
+      <div className="min-h-screen bg-primary px-4 pb-30">
         <div className="max-w-5xl mx-auto w-full bg-primary rounded-4xl shadow-2xl overflow-hidden border border-white">
           <div className="relative h-137 w-full">
             <Image
