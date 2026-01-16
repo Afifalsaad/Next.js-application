@@ -13,10 +13,8 @@ const Species = () => {
       .then((result) => setSpecies(result));
   }, []);
 
-  console.log(species);
-
   return (
-    <div className="pb-30 px-5 md:px-0">
+    <div className="pb-20 px-5 md:px-0">
       <div className="">
         <h2 className="text-7xl font-semibold mb-6">Species</h2>
         <p className="text-[#686868] mb-7 text-2xl">

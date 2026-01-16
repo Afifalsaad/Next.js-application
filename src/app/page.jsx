@@ -4,6 +4,7 @@ import Animals from "@/components/Home/Animals";
 import WhatYouCanDo from "@/components/Home/WhatYouCanDo";
 import Blogs from "@/components/Home/Blogs";
 import Species from "@/components/Home/Species";
+import ClimateChange from "@/components/Home/ClimateChange";
 
 export default function Home() {
   return (
@@ -26,6 +27,10 @@ export default function Home() {
 
       <section>
         <Species></Species>
+      </section>
+
+      <section>
+        <ClimateChange></ClimateChange>
       </section>
     </div>
   );
