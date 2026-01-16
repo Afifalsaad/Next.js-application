@@ -26,6 +26,11 @@ const Navbar = () => {
                 All Animals
               </h2>
             </Link>
+            <Link href="/addConcern">
+              <h2 className="text-accent hover:underline hover:cursor-pointer font-semibold mr-3 text-neutral-accent">
+                Add Concern
+              </h2>
+            </Link>
           </ul>
         </div>
         <div className="navbar-end">
