@@ -6,11 +6,11 @@ import { signOut } from "next-auth/react";
 import Image from "next/image";
 import { toast, Zoom } from "react-toastify";
 import { usePathname } from "next/navigation";
+import NavLinks from "../Buttons/NavLinks";
 
 const Navbar = () => {
   const { data: session, status } = useSession();
   const pathName = usePathname();
-  console.log(pathName);
 
   const handleLogout = () => {
     signOut({
@@ -30,16 +30,16 @@ const Navbar = () => {
         </div>
         <div className="navbar-center flex">
           <ul className="menu menu-horizontal">
-            <Link href="/animals">
-              <h2 className="text-accent hover:underline hover:cursor-pointer font-semibold mr-3 text-neutral-accent">
+            <NavLinks href="/animals">
+              <h2 className="text-accent hover:underline hover:cursor-pointer font-semibold mr-3">
                 All Animals
               </h2>
-            </Link>
-            <Link href="/addConcern">
+            </NavLinks>
+            <NavLinks href="/addConcern">
               <h2 className="text-accent hover:underline hover:cursor-pointer font-semibold mr-3 text-neutral-accent">
                 Add Concern
               </h2>
-            </Link>
+            </NavLinks>
           </ul>
         </div>
         <div className="navbar-end">

@@ -1,4 +1,4 @@
-import TestButton from "@/components/Buttons/TestButton";
+import TestButton from "@/components/Buttons/NavLinks";
 import Banner from "@/components/Home/Banner";
 import Animals from "@/components/Home/Animals";
 import WhatYouCanDo from "@/components/Home/WhatYouCanDo";

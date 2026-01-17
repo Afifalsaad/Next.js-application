@@ -28,7 +28,6 @@ const LoginForm = () => {
     });
 
     if (res?.ok) {
-      router.push(callBackUrl);
       toast.success("Logged In!", {
         position: "top-right",
         autoClose: 2000,
@@ -40,6 +39,7 @@ const LoginForm = () => {
         theme: "dark",
         transition: Zoom,
       });
+      router.push(callBackUrl);
     } else {
       alert("Login Failed");
     }
@@ -53,6 +53,7 @@ const LoginForm = () => {
     setDemoEmail("demouser@gmail.com");
     setDemoPass("12345678");
   };
+
   return (
     <div>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
