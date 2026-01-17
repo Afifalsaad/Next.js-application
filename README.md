@@ -19,6 +19,8 @@ This project is a wildlife-focused platform where users can:
 - Log in using email/password or Google authentication
 
 The application follows industry-standard Next.js architecture, combining Server Components and Client Components for performance and scalability.
+
+## Live Link - https://next-js-application-psi.vercel.app/
 <br/>
 
 ---
