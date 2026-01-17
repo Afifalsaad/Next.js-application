@@ -1,14 +1,33 @@
 "use client";
 import { postConcern } from "@/actions/server/data";
-import React from "react";
+import { useSession } from "next-auth/react";
+import { usePathname, useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast, Zoom } from "react-toastify";
 
 const AddConcernForm = () => {
   const { register, handleSubmit } = useForm();
+  const { data: session, status } = useSession();
+  const userEmail = session?.user.email.toString();
+  const router = useRouter();
+  const pathName = usePathname();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push(`/login?callbackUrl=${pathName}`);
+    }
+  }, [status, router, pathName]);
+
+  if (status === "loading") {
+    return (
+      <p className="text-center pt-10 min-h-screen flex items-center justify-center">
+        Loading...
+      </p>
+    );
+  }
 
   const submitForm = async (data) => {
-    console.log(data);
     const result = await postConcern(data);
     if (result.acknowledged) {
       toast.success("Thanks for your info.", {
@@ -37,7 +56,7 @@ const AddConcernForm = () => {
                 First Name
               </label>
               <input
-                {...register("first-name")}
+                {...register("firstName")}
                 type="text"
                 placeholder="Enter first name"
                 className="px-4 py-3.5 pr-8 bg-primary text-neutral-content font-medium w-full text-sm border-2 border-gray-200 focus:border-blue-500 rounded-sm outline-none"
@@ -60,7 +79,7 @@ const AddConcernForm = () => {
                 Last Name
               </label>
               <input
-                {...register("last-name")}
+                {...register("lastName")}
                 type="text"
                 placeholder="Enter last name"
                 className="px-4 py-3.5 pr-8 bg-primary text-neutral-content font-medium w-full text-sm border-2 border-gray-200 focus:border-blue-500 rounded-sm outline-none"
@@ -133,7 +152,7 @@ const AddConcernForm = () => {
                 Animal Name
               </label>
               <input
-                {...register("animal-name")}
+                {...register("animalName")}
                 type="text"
                 placeholder="Enter animal name"
                 className="px-4 py-3.5 pr-8 bg-primary text-neutral-content font-medium w-full text-sm border-2 border-gray-200 focus:border-blue-500 rounded-sm outline-none"
@@ -182,6 +201,8 @@ const AddConcernForm = () => {
                 Email
               </label>
               <input
+                defaultValue={userEmail}
+                readOnly
                 {...register("email")}
                 type="email"
                 placeholder="Enter email"

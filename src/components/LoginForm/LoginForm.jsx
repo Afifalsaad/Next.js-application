@@ -1,13 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { toast, ToastContainer, Zoom } from "react-toastify";
+import { useRouter, useSearchParams } from "next/navigation";
+import { toast, Zoom } from "react-toastify";
 
 const LoginForm = () => {
   const router = useRouter();
   const [demoEmail, setDemoEmail] = useState("");
   const [demoPass, setDemoPass] = useState("");
+  const searchParams = useSearchParams();
+  const callBackUrl = searchParams.get("callbackUrl") || "/animals";
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -26,7 +28,7 @@ const LoginForm = () => {
     });
 
     if (res?.ok) {
-      router.push("/animals");
+      router.push(callBackUrl);
       toast.success("Logged In!", {
         position: "top-right",
         autoClose: 2000,
