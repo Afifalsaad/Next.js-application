@@ -5,9 +5,18 @@ import React from "react";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 import { toast, Zoom } from "react-toastify";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const { data: session, status } = useSession();
+  const pathName = usePathname();
+  console.log(pathName);
+
+  const handleLogout = () => {
+    signOut({
+      callbackUrl: `/login?callbackUrl=${pathName}`,
+    });
+  };
 
   const userLoggedIn = status === "authenticated";
 
@@ -37,7 +46,7 @@ const Navbar = () => {
           {userLoggedIn ? (
             <button
               onClick={() => {
-                signOut();
+                handleLogout();
                 toast.success("Logged Out!", {
                   position: "top-right",
                   autoClose: 2000,
