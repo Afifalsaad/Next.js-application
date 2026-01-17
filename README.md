@@ -1,36 +1,155 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 🐾 Wildlife Conservation Web Application
 
-## Getting Started
+A modern full-stack web application built with Next.js (App Router) and NextAuth.js, focused on wildlife conservation.
+Users can explore animal information, view detailed pages, and submit conservation concerns with authentication support (Credentials & Google).
+<br/>
 
-First, run the development server:
 
+---
+## 📌 Project Description
+
+This project is a wildlife-focused platform where users can:
+
+- Browse a list of animals
+
+- View detailed information about each animal
+
+- Submit conservation-related concerns (authenticated users only)
+
+- Log in using email/password or Google authentication
+
+The application follows industry-standard Next.js architecture, combining Server Components and Client Components for performance and scalability.
+<br/>
+
+---
+## ⚙️ Setup & Installation
+1️⃣ Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/afifalsaad/
+Next.js-application.git
+cd your-repo-name
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2️⃣ Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3️⃣ Environment variables : <br/>
+Create a .env file in the root directory and add
+```bash
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+MONGODB_URI=your_mongodb_connection_string
+DB_NAME=your_database_name
+```
 
-## Learn More
+4️⃣ Run the development server
+```bash
+npm run dev
+```
+App will be available at:
+```bash
+http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+5️⃣ Production build
+```bash
+npm run build
+npm start
+```
+<br/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
+## 🧭 Route Summary
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Route | Description |
+| :--- | :--- |
+| `/` | Home page |
+| `/animals` | Displays all animals |
+| `/animals/[id]` | Animal details page |
+| `/login` | User login page |
+| `/addConcern` | Submit wildlife concern (protected route) |
+<br/>
 
-## Deploy on Vercel
+---
+## ✨ Implemented Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Authentication with NextAuth.js
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  - Credentials login
+
+  - Google OAuth login
+
+- Callback URL handling (redirect after login/logout)
+
+- Protected routes for authenticated users
+
+- Dynamic animal listing & details pages
+
+- Concern submission form
+
+- MongoDB database integration
+
+- Responsive UI using Tailwind CSS & DaisyUI
+
+- Toast notifications for user actions
+<br/>
+
+---
+## 🧩 Feature Explanations
+Authentication :
+
+- Users can sign in using:
+
+  - Email & password (Credentials Provider)
+
+  - Google account (Google Provider)
+
+- Authenticated users can submit wildlife-related concerns with:
+
+  - Personal information
+
+  - Animal name
+
+  - Description of the concern
+
+Session handling is managed using NextAuth, with secure cookies.
+<br/>
+
+---
+## 🔁 Redirect after Login / Logout
+
+- If a user tries to access a protected page, they are redirected to /login.
+
+- After successful login, the user is redirected back to the original page using callbackUrl.
+<br/>
+
+---
+## 🛡️ Protected Routes
+
+Pages like Add Concern are accessible only to authenticated users.<br/>
+Unauthenticated users are automatically redirected to the login page.
+<br/>
+
+---
+## 🚀 Tech Stack
+
+- Next.js 16 (App Router)
+
+- NextAuth.js
+
+- React
+
+- MongoDB
+
+- Tailwind CSS
+
+- DaisyUI
+<br/>
+
+---
+## 📦 Deployment
+
+The application is fully compatible with Vercel and follows best practices for production deployment.
